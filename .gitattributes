@@ -1,0 +1,4 @@
+entwiki9/enwik8 filter=lfs diff=lfs merge=lfs -text
+entwiki9/enwik8.zip filter=lfs diff=lfs merge=lfs -bin
+entwiki9/enwik9.zip filter=lfs diff=lfs merge=lfs -bin
+Homotopy.nb filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,74 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1629,         65]
+NotebookOptionsPosition[      1230,         47]
+NotebookOutlinePosition[      1662,         64]
+CellTagsIndexPosition[      1619,         61]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"BaseForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "3"}], "/", "2"}], ",", " ", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5216312978284903`*^9, 3.521631332322791*^9}, {
+  3.52163159791087*^9, 3.5216316083649817`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"-", 
+   FractionBox[
+    InterpretationBox[
+     SubscriptBox["\<\"11\"\>", "\<\"2\"\>"],
+     3,
+     Editable->False], 
+    InterpretationBox[
+     SubscriptBox["\<\"10\"\>", "\<\"2\"\>"],
+     2,
+     Editable->False]]}],
+  BaseForm[#, 2]& ]], "Output",
+ CellChangeTimes->{{3.52163131733879*^9, 3.521631333832862*^9}, 
+   3.521631609780732*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 656},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 251, 6, 28, "Input"],
+Cell[833, 30, 381, 14, 50, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

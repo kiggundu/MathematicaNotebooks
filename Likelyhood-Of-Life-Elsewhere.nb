@@ -1,0 +1,367 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10523,        358]
+NotebookOptionsPosition[      8847,        293]
+NotebookOutlinePosition[      9203,        309]
+CellTagsIndexPosition[      9160,        306]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Calculating the likelyhood of life as we know it on other planets\
+\>", "Section",
+ CellChangeTimes->{{3.678548324492854*^9, 3.678548345895639*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"earthVolume", " ", "=", " ", 
+  RowBox[{"1.097", "*", 
+   RowBox[{"10", "^", "21"}]}]}]], "Input",
+ CellChangeTimes->{{3.6785484902369204`*^9, 3.678548551608385*^9}, {
+   3.6785486862985153`*^9, 3.6785487220329847`*^9}, {3.678548839868202*^9, 
+   3.678548840867754*^9}, {3.6785488724173927`*^9, 3.678548873385104*^9}, 
+   3.6785491973937397`*^9}],
+
+Cell[BoxData["1.097`*^21"], "Output",
+ CellChangeTimes->{3.678549216731225*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"noOfAtomsOnEarth", "=", 
+   RowBox[{"1.33", "*", 
+    RowBox[{"10", "^", "50"}]}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.67854856649601*^9, 3.6785485772769117`*^9}, {
+   3.678548782676523*^9, 3.678548828979841*^9}, 3.678549203409649*^9}],
+
+Cell[BoxData["1.3300000000000002`*^50"], "Output",
+ CellChangeTimes->{3.678549216967915*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"carbonAtomVolumeMetersCubed", "=", 
+  RowBox[{"9.97", "*", 
+   RowBox[{"10", "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "30"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.678548960282769*^9, 3.678549045485298*^9}, 
+   3.678549209072994*^9}],
+
+Cell[BoxData["9.97`*^-30"], "Output",
+ CellChangeTimes->{3.6785492169896803`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"spacesForAtomsOnEarth", "=", 
+  RowBox[{"earthVolume", "/", "carbonAtomVolumeMetersCubed"}]}]], "Input",
+ CellChangeTimes->{{3.678549056323333*^9, 3.678549158233006*^9}}],
+
+Cell[BoxData["1.1003009027081245`*^50"], "Output",
+ CellChangeTimes->{3.678549217031972*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sizeOfAtomicConfigurationSpace", "=", 
+  RowBox[{
+   RowBox[{"spacesForAtomsOnEarth", "!"}], "/", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"spacesForAtomsOnEarth", "-", "noOfAtomsOnEarth"}], ")"}], 
+    "!"}]}]}]], "Input",
+ CellChangeTimes->{{3.678549248848036*^9, 3.678549339177092*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "ovfl"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Overflow occurred in computation. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ovfl\\\", ButtonNote -> \
+\\\"General::ovfl\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6785493415795727`*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{3.6785493415824213`*^9}]
+}, Open  ]],
+
+Cell["\<\
+that number is too big to evaluate but using the Stirling approximation it \
+can be assigned a lower and an upper bound as follows: given n! then if \
+lowerBound \[LessEqual] n! \[LessEqual] upperBound\
+\>", "Text",
+ CellChangeTimes->{{3.678549493506989*^9, 3.67854950782607*^9}, {
+  3.678549909181671*^9, 3.678549951319515*^9}, {3.678550477191998*^9, 
+  3.678550530581609*^9}, {3.678550616413286*^9, 3.678550623228043*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lowerBound", "[", "n", "]"}], "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"2", "*", "Pi", "*", "n"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"1", "/", "2"}], ")"}]}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"n", "/", "E"}], ")"}], "^", "n"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.678549428331358*^9, 3.6785494636107073`*^9}, {
+   3.678549958527773*^9, 3.67855003032749*^9}, 3.678550135036992*^9, {
+   3.678550165495472*^9, 3.6785502460002527`*^9}, {3.678551807423984*^9, 
+   3.678551835350397*^9}, 3.6785519237574997`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{"-", "n"}]], " ", 
+  SuperscriptBox["n", 
+   RowBox[{
+    FractionBox["1", "2"], "+", "n"}]], " ", 
+  SqrtBox[
+   RowBox[{"2", " ", "\[Pi]"}]]}]], "Output",
+ CellChangeTimes->{3.678551925035843*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"upperBound", "[", "n", "]"}], "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"2", "*", "Pi", "*", "n"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"1", "/", "2"}], ")"}]}], ")"}], "*", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"n", "/", "E"}], ")"}], "^", 
+     RowBox[{"(", 
+      RowBox[{"n", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"(", 
+          RowBox[{"1", "/", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"12", "n"}], "-", "1"}], ")"}]}], ")"}]}], ")"}]}], 
+      ")"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.6785502719517937`*^9, 3.6785504178079042`*^9}, {
+  3.678551978864245*^9, 3.678552003749311*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  SuperscriptBox["\[ExponentialE]", 
+   RowBox[{
+    RowBox[{"-", "n"}], " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", 
+      FractionBox["1", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{"12", " ", "n"}]}]]}], ")"}]}]], " ", 
+  SuperscriptBox["n", 
+   RowBox[{
+    FractionBox["1", "2"], "+", 
+    RowBox[{"n", " ", 
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       FractionBox["1", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", 
+         RowBox[{"12", " ", "n"}]}]]}], ")"}]}]}]], " ", 
+  SqrtBox[
+   RowBox[{"2", " ", "\[Pi]"}]]}]], "Output",
+ CellChangeTimes->{3.678550423172738*^9, 3.678552013212823*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"logLowerBound", "=", 
+  RowBox[{"10", "^", "51"}]}]], "Input",
+ CellChangeTimes->{{3.678552036756729*^9, 3.67855204774092*^9}, {
+  3.678552105492476*^9, 3.6785521269003353`*^9}, {3.6785533395065413`*^9, 
+  3.678553345288671*^9}}],
+
+Cell[BoxData["1000000000000000000000000000000000000000000000000000"], "Output",
+ CellChangeTimes->{3.678552128049828*^9, 3.6785533477436438`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"spacesForAtomsOnEarth", "!"}], " ", "is", " ", "approximatel", 
+  " "}]], "Input",
+ CellChangeTimes->{{3.678554557874922*^9, 3.6785545842957487`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"approximatel", " ", "is", " ", 
+  RowBox[{"spacesForAtomsOnEarth", "!"}]}]], "Output",
+ CellChangeTimes->{3.6785545861563253`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"10", "^", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", "50"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.67855459914357*^9, 3.678554618999505*^9}, {
+  3.67855491449089*^9, 3.6785549235543547`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "ovfl"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Overflow occurred in computation. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ovfl\\\", ButtonNote -> \
+\\\"General::ovfl\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.67855492490801*^9, 3.678554955729396*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Overflow", "[", "]"}]], "Output",
+ CellChangeTimes->{
+  3.678554620248233*^9, {3.678554924914831*^9, 3.678554955740106*^9}}]
+}, Open  ]],
+
+Cell["\<\
+After a great deal of order-of-magnitude approximation it is found that the \
+total configuration space of the earth is 10^(10^50), an apaulingly large \
+number of which our universe at 10^90 atoms is a miniscule/insignificant \
+fraction:\
+\>", "Text",
+ CellChangeTimes->{{3.6786349576521997`*^9, 3.678634991277244*^9}, {
+  3.6786350289229183`*^9, 3.678635116999221*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"10", "^", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", "50"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.6786349994083757`*^9, 3.678635016403614*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "ovfl"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Overflow occurred in computation. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/ovfl\\\", ButtonNote -> \
+\\\"General::ovfl\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.678635017704921*^9}],
+
+Cell[BoxData[
+ RowBox[{"Overflow", "[", "]"}]], "Output",
+ CellChangeTimes->{3.678635017708044*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 755},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 158, 3, 64, "Section"],
+Cell[CellGroupData[{
+Cell[763, 29, 370, 7, 28, "Input"],
+Cell[1136, 38, 79, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1252, 44, 293, 6, 46, "Input"],
+Cell[1548, 52, 92, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1677, 58, 265, 7, 28, "Input"],
+Cell[1945, 67, 81, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2063, 73, 194, 3, 28, "Input"],
+Cell[2260, 78, 92, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2389, 84, 316, 8, 46, "Input"],
+Cell[2708, 94, 415, 9, 24, "Message"],
+Cell[3126, 105, 72, 1, 28, "Output"]
+}, Open  ]],
+Cell[3213, 109, 434, 7, 49, "Text"],
+Cell[CellGroupData[{
+Cell[3672, 120, 642, 17, 28, "Input"],
+Cell[4317, 139, 270, 9, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4624, 153, 764, 25, 28, "Input"],
+Cell[5391, 180, 664, 23, 39, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6092, 208, 253, 5, 28, "Input"],
+Cell[6348, 215, 145, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6530, 221, 185, 4, 28, "Input"],
+Cell[6718, 227, 154, 3, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6909, 235, 214, 5, 28, "Input"],
+Cell[7126, 242, 436, 9, 24, "Message"],
+Cell[7565, 253, 148, 3, 28, "Output"]
+}, Open  ]],
+Cell[7728, 259, 381, 7, 68, "Text"],
+Cell[CellGroupData[{
+Cell[8134, 270, 167, 4, 28, "Input"],
+Cell[8304, 276, 413, 9, 24, "Message"],
+Cell[8720, 287, 99, 2, 28, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

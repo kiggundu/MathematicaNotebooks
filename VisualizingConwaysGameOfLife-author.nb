@@ -1,0 +1,927 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     39386,        918]
+NotebookOptionsPosition[     35566,        800]
+NotebookOutlinePosition[     37153,        850]
+CellTagsIndexPosition[     36833,        838]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Visualizing Conway's Game of Life", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4014024402850738`*^9, 3.4014024527720737`*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "matrix", "}"}], ",", 
+     RowBox[{
+      RowBox[{"SeedRandom", "[", "seed", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"matrix", "=", 
+       RowBox[{"RandomInteger", "[", 
+        RowBox[{
+         RowBox[{"{", "1", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"cells", ",", "cells"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"f", "[", 
+         RowBox[{"#", ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"375", ",", "375"}], "}"}]}]}], "]"}], "&"}], "@@", 
+       "\[IndentingNewLine]", 
+       RowBox[{"CellularAutomaton", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"224", ",", 
+           RowBox[{"{", 
+            RowBox[{"2", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"2", ",", "2", ",", "2"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"2", ",", "1", ",", "2"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"2", ",", "2", ",", "2"}], "}"}]}], "}"}]}], "}"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1"}], "}"}]}], "}"}], ",", " ", "matrix", ",", 
+         
+         RowBox[{"{", 
+          RowBox[{"{", "step", "}"}], "}"}]}], "]"}]}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"step", ",", "0", ",", "1000", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"seed", ",", "1", ",", "\"\<initial condition\>\""}], "}"}], 
+     ",", "1", ",", "2000", ",", "1", ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"cells", ",", "20", ",", "\"\<number of vertices\>\""}], "}"}], 
+     ",", "10", ",", "50", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+     RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", "ArrayPlot", ",", "\"\<type of plot\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "ArrayPlot", ",", "GraphPlot", ",", "GraphPlot3D", ",", 
+       "LayeredGraphPlot", ",", "TreePlot"}], "}"}]}], "}"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "4"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, 3.401402431889074*^9, {3.4014912056400824`*^9, 
+   3.4014912310880823`*^9}, {3.4015380748047113`*^9, 
+   3.4015382309453363`*^9}, {3.401630976545312*^9, 3.401630992264062*^9}, {
+   3.4017235002197065`*^9, 3.4017235324228315`*^9}, {3.4017469740480375`*^9, 
+   3.4017469746490374`*^9}, 3.401789802687786*^9}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    ArrayPlot, $CellContext`seed$$ = 1, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], ArrayPlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`step$230122$$ = 0, $CellContext`seed$230123$$ = 
+    0, $CellContext`cells$230124$$ = 0, $CellContext`f$230125$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        ArrayPlot, $CellContext`seed$$ = 1, $CellContext`step$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230122$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230123$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230124$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230125$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1, "initial condition"}, 1, 2000, 1, 
+         ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, ArrayPlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{632., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->71354107]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+What do Conway's game of life and graph theory have in common? They both can \
+be represented by binary matrices: in Conway's game of life, a 1 represents a \
+live cell (black) and a 0 represents a dead cell (white); likewise, a graph \
+can be represented by its adjacency matrix, where a 0 or 1 represents no link \
+or a link between two nodes, respectively. Applying a nine-cell \
+two-dimensional outer totalistic rule on a random binary square matrix \
+simulates the evolution of the game of life as well as the evolution of a \
+random network. Thus, although the underlying rule is identical in each case, \
+the computation can be represented graphically in many different ways. \
+\>", "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4015774822508583`*^9, 3.4015775345918584`*^9}, {
+   3.4015776154928584`*^9, 3.4015777120078583`*^9}, {3.4015778131778584`*^9, 
+   3.4015778514718585`*^9}, {3.4015778826368585`*^9, 3.401577883068858*^9}, {
+   3.401622567279687*^9, 3.401622567295312*^9}, {3.401629357535697*^9, 
+   3.401629372318366*^9}, {3.4016296362655773`*^9, 3.4016296628775067`*^9}, {
+   3.401629695068097*^9, 3.401629774544476*^9}, {3.4020597649974794`*^9, 
+   3.4020597848568544`*^9}},
+ CellID->267701719]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    ArrayPlot, $CellContext`seed$$ = 1, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], ArrayPlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`step$230191$$ = 0, $CellContext`seed$230192$$ = 
+    0, $CellContext`cells$230193$$ = 0, $CellContext`f$230194$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        ArrayPlot, $CellContext`seed$$ = 1, $CellContext`step$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230191$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230192$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230193$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230194$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1, "initial condition"}, 1, 2000, 1, 
+         ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, ArrayPlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{632., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->151776422]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    ArrayPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 595, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`step$$], 595}, 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1572, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], ArrayPlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = {375., {185., 190.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`step$230260$$ = 0, $CellContext`seed$230261$$ = 
+    0, $CellContext`cells$230262$$ = 0, $CellContext`f$230263$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        ArrayPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 595}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230260$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230261$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230262$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230263$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{{$CellContext`step$$, 595}, 0, 1000, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1572, "initial condition"}, 1, 2000, 1,
+          ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, ArrayPlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{632., {226., 231.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->73748250],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    GraphPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1572, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], GraphPlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`step$230329$$ = 
+    0, $CellContext`seed$230330$$ = 0, $CellContext`cells$230331$$ = 
+    0, $CellContext`f$230332$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        GraphPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230329$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230330$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230331$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230332$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1572, "initial condition"}, 1, 2000, 1,
+          ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, GraphPlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->716463728],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    GraphPlot3D, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1572, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], GraphPlot3D, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`step$230398$$ = 
+    0, $CellContext`seed$230399$$ = 0, $CellContext`cells$230400$$ = 
+    0, $CellContext`f$230401$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        GraphPlot3D, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230398$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230399$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230400$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230401$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1572, "initial condition"}, 1, 2000, 1,
+          ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, GraphPlot3D, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->927764452],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    LayeredGraphPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1572, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], LayeredGraphPlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`step$230467$$ = 
+    0, $CellContext`seed$230468$$ = 0, $CellContext`cells$230469$$ = 
+    0, $CellContext`f$230470$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        LayeredGraphPlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 
+        0}, "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230467$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230468$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230469$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230470$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1572, "initial condition"}, 1, 2000, 1,
+          ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, LayeredGraphPlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->250589997],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`cells$$ = 20, $CellContext`f$$ = 
+    TreePlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`step$$], 0, 1000, 1}, {{
+       Hold[$CellContext`seed$$], 1572, "initial condition"}, 1, 2000, 1}, {{
+       Hold[$CellContext`cells$$], 20, "number of vertices"}, 10, 50, 1}, {{
+       Hold[$CellContext`f$$], TreePlot, "type of plot"}, {
+      ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`step$230536$$ = 
+    0, $CellContext`seed$230537$$ = 0, $CellContext`cells$230538$$ = 
+    0, $CellContext`f$230539$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`cells$$ = 20, $CellContext`f$$ = 
+        TreePlot, $CellContext`seed$$ = 1572, $CellContext`step$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`step$$, $CellContext`step$230536$$, 0], 
+        Hold[$CellContext`seed$$, $CellContext`seed$230537$$, 0], 
+        Hold[$CellContext`cells$$, $CellContext`cells$230538$$, 0], 
+        Hold[$CellContext`f$$, $CellContext`f$230539$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`matrix$}, 
+        SeedRandom[$CellContext`seed$$]; $CellContext`matrix$ = 
+         RandomInteger[{1}, {$CellContext`cells$$, $CellContext`cells$$}]; 
+        Apply[$CellContext`f$$[#, ImageSize -> {375, 375}]& , 
+          CellularAutomaton[{
+           224, {2, {{2, 2, 2}, {2, 1, 2}, {2, 2, 2}}}, {1, 
+            1}}, $CellContext`matrix$, {{$CellContext`step$$}}]]], 
+      "Specifications" :> {{$CellContext`step$$, 0, 1000, 1, Appearance -> 
+         "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`seed$$, 1572, "initial condition"}, 1, 2000, 1,
+          ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`cells$$, 20, "number of vertices"}, 10, 50, 1, 
+         Appearance -> "Labeled", ControlPlacement -> Left, ImageSize -> 
+         Tiny}, {{$CellContext`f$$, TreePlot, "type of plot"}, {
+         ArrayPlot, GraphPlot, GraphPlot3D, LayeredGraphPlot, TreePlot}}}, 
+      "Options" :> {AutorunSequencing -> {3, 4}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->323032680]
+}, Open  ]],
+
+Cell["", "DetailsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4015383897265863`*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4015384020390863`*^9},
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.4015383913672113`*^9},
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  ActionDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9, 
+  3.4015383966172113`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0], BoxBaselineShift -> 
+     0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  ActionDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell["", "SearchTermsSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Conway Game",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/ConwayGame.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4015383295390863`*^9, 3.4015383366484613`*^9}},
+ CellID->260768607],
+
+Cell[TextData[ButtonBox["Game Theory",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/GameTheory.html"], 
+   None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4015383579609613`*^9, 3.4015383639609613`*^9}},
+ CellID->69728182],
+
+Cell[TextData[ButtonBox["Life",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/Life.html"], None}]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4015383815234613`*^9, 3.4015383868047113`*^9}},
+ CellID->197159718]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["Bichara Sahely",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Bichara+Sahely"]\
+, None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Bichara+Sahely"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.401402939909074*^9, 3.401402942416074*^9}, {
+   3.4014912955770826`*^9, 3.4014912955790825`*^9}}],
+
+Cell[TextData[{
+ "Based on a program by: ",
+ ButtonBox["Luca Zammataro",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Luca+Zammataro"]\
+, None}]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4014913270550823`*^9, 3.4014913361100826`*^9}, 
+   3.4014913762730827`*^9, {3.4014914436320825`*^9, 3.4014914441400824`*^9}, {
+   3.4015382628984613`*^9, 3.4015383054922113`*^9}},
+ CellID->109725650]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{765, 907},
+WindowMargins->{{199, Automatic}, {Automatic, -36}},
+FrontEndVersion->"6.0 for Microsoft Windows (32-bit) (April 20, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "WindowsANSI"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[27936, 580, 375, 9, 22, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[28314, 591, 741, 17, 22, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[29058, 610, 339, 11, 22, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[29400, 623, 636, 15, 22, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[30039, 640, 907, 22, 22, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[30949, 664, 394, 10, 22, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[31346, 676, 1411, 31, 22, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[32760, 709, 881, 21, 22, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 35941, 811},
+ {"RotateAndZoomIn3D", 36049, 814},
+ {"DragLocators", 36158, 817},
+ {"CreateAndDeleteLocators", 36273, 820},
+ {"SliderZoom", 36386, 823},
+ {"GamepadControls", 36491, 826},
+ {"AutomaticAnimation", 36604, 829},
+ {"BookmarkAnimation", 36720, 832}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[590, 23, 148, 2, 74, "DemoTitle"],
+Cell[741, 27, 33, 0, 156, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[799, 31, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[853, 35, 3230, 83, 182, "Input"],
+Cell[4086, 120, 3195, 58, 469, "Output",
+ CellID->71354107]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7327, 184, 36, 0, 136, "ManipulateCaptionSection"],
+Cell[7366, 186, 1244, 19, 112, "ManipulateCaption",
+ CellID->267701719]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8647, 210, 28, 0, 168, "ThumbnailSection"],
+Cell[8678, 212, 3196, 58, 469, "Output",
+ CellID->151776422]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11911, 275, 28, 0, 138, "SnapshotsSection"],
+Cell[11942, 277, 3226, 58, 469, "Output",
+ CellID->73748250],
+Cell[15171, 337, 3154, 57, 32, "Output",
+ CellID->716463728],
+Cell[18328, 396, 3162, 57, 32, "Output",
+ CellID->927764452],
+Cell[21493, 455, 3184, 57, 32, "Output",
+ CellID->250589997],
+Cell[24680, 514, 3150, 57, 32, "Output",
+ CellID->323032680]
+}, Open  ]],
+Cell[27845, 574, 26, 0, 232, "DetailsSection"],
+Cell[CellGroupData[{
+Cell[27896, 578, 37, 0, 108, "ControlSuggestionsSection"],
+Cell[27936, 580, 375, 9, 22, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[28314, 591, 741, 17, 22, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[29058, 610, 339, 11, 22, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[29400, 623, 636, 15, 22, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[30039, 640, 907, 22, 22, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[30949, 664, 394, 10, 22, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[31346, 676, 1411, 31, 22, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[32760, 709, 881, 21, 22, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[33656, 733, 30, 0, 152, "SearchTermsSection"],
+Cell[CellGroupData[{
+Cell[33711, 737, 31, 0, 126, "RelatedLinksSection"],
+Cell[33745, 739, 277, 7, 22, "RelatedLinks",
+ CellID->260768607],
+Cell[34025, 748, 276, 7, 22, "RelatedLinks",
+ CellID->69728182],
+Cell[34304, 757, 260, 6, 22, "RelatedLinks",
+ CellID->197159718]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34601, 768, 25, 0, 136, "AuthorSection"],
+Cell[34629, 770, 443, 12, 22, "Author"],
+Cell[35075, 784, 463, 12, 22, "Author",
+ CellID->109725650]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
